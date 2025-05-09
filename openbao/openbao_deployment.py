@@ -2,7 +2,6 @@ import os
 import ssl
 import json
 from http.client import HTTPSConnection
-from pathlib import Path
 
 # Get environment variables
 BAO_ADDR = os.getenv('BAO_ADDR', 'https://127.0.0.1:8200')
