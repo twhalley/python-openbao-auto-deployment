@@ -1,0 +1,5 @@
+openbao_ssl/
+openbao_log/
+openbao_data/
+openbao_tls/
+*.code-workspace

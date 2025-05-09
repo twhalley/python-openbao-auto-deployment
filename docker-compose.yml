@@ -1,0 +1,95 @@
+version: '3.9'
+services:
+  # jenkins:
+  #   build: 
+  #     context: ./jenkins  # Directory containing Dockerfile for Jenkins
+  #   container_name: jenkins
+  #   user: jenkins
+  #   environment:
+  #     BAO_ADDR: http://bao:8200
+  #     ROLE_ID: your_role_id
+  #     SECRET_ID: your_secret_id
+  #   volumes:
+  #     - ./jenkins/jenkins_home:/var/jenkins_home  # Local path for Jenkins data
+  #     - ./jenkins/fetch_secrets.py:/usr/share/jenkins/fetch_secrets.py
+  #   entrypoint: ["sh", "-c", "python3 /usr/share/jenkins/fetch_secrets.py && /sbin/tini -- /usr/local/bin/jenkins.sh"]
+  #   networks:
+  #     - my-shared-network
+  #   ports:
+  #     - "8080:8080"
+  #     - "50000:50000"
+  #   depends_on:
+  #     - postgres
+  #     - bao
+
+  # postgres:
+  #   build: 
+  #     context: ./postgres
+  #   container_name: postgres
+  #   user: postgres
+  #   environment:
+  #     POSTGRES_USER: dbadmin
+  #     POSTGRES_PASSWORD: dbpassword
+  #     POSTGRES_DB: mydatabase
+  #   volumes:
+  #     - ./postgres/postgres_data:/var/lib/postgresql/data
+  #     - ./postgres/postgres_logs:/var/log/postgresql/
+  #   networks:
+  #     - my-shared-network
+  #   ports:
+  #     - "5432:5432"
+  #   depends_on:
+  #     - bao
+
+  openbao:
+    build: 
+      context: ./openbao
+    container_name: openbao
+    working_dir: /opt/openbao
+    environment:
+      #VAULT_DEV_ROOT_TOKEN_ID: root
+    volumes:
+      - ./openbao/openbao_config:/opt/openbao/openbao_config
+      - ./openbao/openbao_tls:/opt/openbao/tls
+      - ./openbao/openbao_ssl:/opt/openbao/openbao_ssl
+      - ./openbao/openbao_data:/opt/openbao/openbao_data
+      - ./openbao/openbao_log:/var/log/openbao
+    ports:
+      - "8200:8200"
+
+networks:
+
+
+# volumes:
+#   openbao_config_volume:
+  # openbao_tls_volume:
+  #   name: openbao_tls_volume
+  #   driver: local
+  #   driver_opts:
+  #     type: none
+  #     o: bind
+  #     device: ${PWD}/openbao/openbao_tls_volume
+  # openbao_ssl_volume:
+  #   name: openbao_ssl_volume
+  # openbao_data_volume:
+  #   name: openbao_data_volume
+  # openbao_logs_volume:
+  #   name: openbao_logs_volume
+
+# secrets:
+#   dbadmin:
+#     file: ./secrets/dbadmin
+#   dbpassword:
+#     file: ./secrets/dbpassword
+#   mydatabase:
+#     file: ./secrets/mydatabase
+#   bao_addr:
+#     file: ./secrets/bao_addr
+#   role_id:
+#     file: ./secrets/role_id
+#   secret_id:
+#     file: ./secrets/secret_id
+
+# networks:
+#   my-shared-network:
+#     external: true
