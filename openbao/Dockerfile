@@ -1,5 +1,5 @@
-# Use the latest Debian image
-FROM debian:latest
+# Use the latest Ubuntu image
+FROM ubuntu:latest
 
 ENV BAO_ADDR=https://127.0.0.1:8200
 
