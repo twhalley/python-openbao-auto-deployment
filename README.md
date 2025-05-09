@@ -59,6 +59,9 @@ SSL certificate generation is done via OpenBAO.
    ```bash
    docker-compose up -d
    ```
+   ```bash
+    podman-compose up -d
+   ```
 
 3. Initialize OpenBAO:
    ```bash
