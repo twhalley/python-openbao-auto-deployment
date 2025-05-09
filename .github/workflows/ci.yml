@@ -18,7 +18,7 @@ jobs:
       - name: Install Docker Compose
         run: |
           sudo apt-get update
-          sudo apt-get install docker-compose
+          sudo apt-get install -y docker-compose
 
       - name: Build and test with Docker
         run: |
@@ -38,6 +38,10 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y podman
+
+      - name: Install Podman Compose
+        run: |
+          sudo apt-get install -y podman-compose
       
       - name: Build and test with Podman
         run: |
