@@ -1,4 +1,4 @@
-# Python OpenBAO Deployment
+# Python OpenBAO Auto Deployment
 
 A Python-based deployment and configuration tool for OpenBAO (formerly known as Vault), providing secure secrets management and access control.
 
