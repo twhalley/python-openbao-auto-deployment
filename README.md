@@ -14,7 +14,6 @@ This project provides a Python-based solution for deploying and configuring Open
 - Agent template example setup with PoC.
 
 SSL certificate generation is done via OpenBAO.
-This does not use any libraies and is all done using Python 3.
 
 ## Prerequisites
 
@@ -46,6 +45,7 @@ This does not use any libraies and is all done using Python 3.
 - **AppRole Authentication**: Secure service-to-service authentication
 - **Database Integration**: PostgreSQL secrets engine configuration
 - **Audit Logging**: Comprehensive audit trail support
+- **No external libraries**: This does not use any libraies and is all done using Python 3.
 
 ## Getting Started
 
