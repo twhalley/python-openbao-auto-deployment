@@ -13,6 +13,9 @@ This project provides a Python-based solution for deploying and configuring Open
 - Docker-based deployment
 - Agent template example setup with PoC.
 
+SSL certificate generation is done via OpenBAO.
+This does not use any libraies and is all done using Python 3.
+
 ## Prerequisites
 
 - Docker and Docker Compose / Podman
