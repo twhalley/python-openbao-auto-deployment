@@ -11,6 +11,7 @@ This project provides a Python-based solution for deploying and configuring Open
 - Database secrets engine configuration
 - SSL/TLS certificate management
 - Docker-based deployment
+- Agent template example setup with PoC.
 
 ## Prerequisites
 
